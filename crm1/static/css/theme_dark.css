@@ -1,0 +1,150 @@
+#logo{
+    }
+
+    #body{
+        background-color: black;
+    }
+
+    #footer{
+        background-color: #D3D3D3;
+    }
+
+    #home_text{
+        color: white;
+    }
+
+    #home_text2{
+        color: white;
+    }
+
+    #home_div{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+    #home_div2{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+    #total-orders{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+
+    #orders-in-production{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+
+    #shipping{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+
+    #orders-delivered{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+    #login1{
+        background-image: linear-gradient(to right, #000000, #000000);
+    }
+
+    #login2{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+    #login3{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+    #login4{
+        background-image: linear-gradient(to right, #000000, #000000);
+    }
+
+    #register1{
+        background-image: linear-gradient(to right, #000000, #000000);
+    }
+
+    #register2{
+        background-image: linear-gradient(to right, #1F4F4F, #3F4F4F);
+    }
+
+    #register3{
+        background-image: linear-gradient(to right, #000000, #000000);
+    }
+
+    #product_image:hover{
+        opacity: 0.5;
+    }
+
+    #search2:{
+        width: 0px;
+        height: 30px;
+        transition: width 2s;
+    }
+
+    #search1:hover > #search2{
+        width: 80px ;
+    }
+
+
+i{
+    color: white;
+}
+
+i:hover{
+    opacity: 0.5;
+}
+
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
