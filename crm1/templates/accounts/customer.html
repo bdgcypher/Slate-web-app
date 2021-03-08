@@ -1,0 +1,84 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body bg-dark text-light text-center">
+			<h5>Customer: {{customer.name}}</h5>
+			<hr>
+			<a class="btn btn-outline-success btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place New Order</a>
+			<a class="btn btn-outline-info btn-sm btn-block" href="{% url 'update_customer' customer.id %}">Update Customer Info</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'delete_customer' customer.id %}">Delete Customer</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body bg-light">
+			<h5>Contact Information</h5>
+			<hr>
+			<h6>Email: {{customer.email}}</h6>
+			<br>
+			<h6>Phone: {{customer.phone}}</h6>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body bg-light">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{order_count}}</h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body bg-light">
+			<form method="get">
+				{{filter.form}}
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body bg-light">
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Size</th>
+					<th>Notes</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</tr>
+				{% for order in orders %}
+				<tr>
+					<td>{{order.product}}</td>
+					<td>{{order.size}}</td>
+					<td>{{order.notes}}</td>
+					<td>{{order.product.date_created}}</td>
+					<td>{{order.status}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

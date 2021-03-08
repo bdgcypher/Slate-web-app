@@ -1,0 +1,40 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Products</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th></th>
+							<th>Product</th>
+							<th>Category</th>
+							<th>Description</th>
+							<th>Price</th>
+						</tr>
+
+						{% for product in products %}
+							<tr>
+								<td><a href="{% url 'product' product.id %}"><img class="link" src="{{product.image.url}}"></a></td>
+								<td>{{product.name}}</td>
+								<td>{{product.category}}</td>
+								<td>{{product.description}}</td>
+								<td>${{product.price}}0</td>
+							</tr>
+						{% endfor %}
+
+					</table>
+					<div class="card-footer" align="right">
+						<a class="btn btn-info" style="width: 150px" href="{% url 'create_product' %}">Add Product</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" id="navbar">
+  <a class="nav-link" href="{% url 'user' %}">
+    <img src="{% static 'images/logo.png' %}" width="80px" height="70px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" align="center" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {% if request.user.is_staff %}
+      <li class="nav-item">
+        <a class="nav-link text-light" href="http://127.0.0.1:8000/dashboard/">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="http://127.0.0.1:8000/products/">Products</a>
+      </li>
+      {% endif %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Options
+        </a>
+        {% if request.user.customer.theme == 'Light' %}
+        <div class="dropdown-menu " align="left" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'profile' %}">Profile  <i class="fas fa-user-circle"></i></a>
+          <a class="dropdown-item" href="{% url 'settings' %}">Settings  <i class="fas fa-cog"></i></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'logout' %}">Sign out    <i class="fas fa-sign-out-alt"></i></a>
+        </div>
+        {% elif request.user.customer.theme == 'Dark' %}
+        <div class="dropdown-menu  bg-secondary" align="left" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-light" href="{% url 'profile' %}">Profile  <i class="fas fa-user-circle"></i></a>
+          <a class="dropdown-item text-light" href="{% url 'settings' %}">Settings  <i class="fas fa-cog"></i></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-light" href="{% url 'logout' %}">Sign out    <i class="fas fa-sign-out-alt"></i></a>
+        </div>
+        {% endif %}
+
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'admin_search' %}">
+      <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search" name="q">
+      {% if request.user.customer.theme == 'Light' %}
+      <a class="btn btn-light my-2 my-sm-0" type="submit" name="q" href="{% url 'admin_search' %}"><i class="fas fa-search"></i></a>
+      {% elif request.user.customer.theme == 'Dark' %}
+      <a class="btn btn-dark my-2 my-sm-0" type="submit" name="q" href="{% url 'admin_search' %}"><i class="fas fa-search"></i></a>
+      {% endif %}
+    </form>
+  </div>
+</nav>
+
