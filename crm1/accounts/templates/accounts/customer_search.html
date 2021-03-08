@@ -1,0 +1,42 @@
+{%  extends 'accounts/customer_main.html' %}
+{% load static %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h2 align="center">Results Countaining "{{query}}"</h2>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+                            <th></th>
+                            <th></th>
+						</tr>
+
+						{% for product in products %}
+							<tr>
+								<td><a href="{% url 'product' product.id %}"><img class="link" src="{{product.image.url}}"></a></td>
+								<td>{{product.name}}</td>
+								<td>{{product.category}}</td>
+								<td>{{product.description}}</td>
+								<td>{{product.price}}</td>
+						{% empty %}
+								<h5>No Results</h5>
+
+							</tr>
+						{% endfor %}
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock content %}

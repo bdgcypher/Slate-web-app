@@ -1,0 +1,42 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+{% load static %}
+<div class="card border-dark">
+	<img class="card-img-top" src="{% static 'images/home_page1.png' %}" width="1230px">
+</div>
+<br>
+<br>
+<div class="card card-sm" id="home_div"><br></div>
+<br>
+<h1 style=" text-align: center; font-family: Courier New;"  id="home_text">Our Mission</h1>
+<br>
+<h4 style="font-family: Trebuchet MS;"  id="home_text2">Here at Slate we value a clean-cut look that sets you apart in a noticeable way.
+	Our Mission is to bring our customers quality clothing that is far from the mainstream. We want our customers to
+	know that we care about them and value their commitment to our products.</h4>
+<br>
+<div class="card card-lg" id="home_div2"><br></div>
+<br>
+<br>
+<div class="card-columns">
+	{% for product in products %}
+
+	  <div class="card border-dark">
+		<a href="{% url 'product2' product.id %}"><img class="card-img-top" src="{{product.image.url}}" id="product_image"></a>
+		<div class="card-body bg-dark">
+		  <h5 class="card-title text-light">{{product.name}}</h5>
+		  <p class="card-text text-light"><b>${{product.price}}0</b></p>
+
+		</div>
+
+	  </div>
+	<br>
+	{% endfor %}
+	<br>
+	<br>
+</div>
+
+
+{% endblock content %}
